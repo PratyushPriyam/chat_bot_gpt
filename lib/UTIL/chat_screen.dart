@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:chat_bot_gpt/chat_message.dart';
-import 'package:chat_bot_gpt/threeDots.dart';
+import 'package:chat_bot_gpt/UTIL/chat_message.dart';
+import 'package:chat_bot_gpt/Three%20Dots/threeDots.dart';
 import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -49,7 +49,7 @@ class _ChatScreenState extends State<ChatScreen> {
     final request = CompleteReq(
         prompt: _message.text, model: kTranslateModelV3, max_tokens: 300);
     _subscription = chatGPT!
-        .builder("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",
+        .builder("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",
             orgId: "")
         .onCompleteStream(request: request)
         .listen((response) {

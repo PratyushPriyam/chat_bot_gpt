@@ -1,4 +1,5 @@
-import 'package:chat_bot_gpt/chat_screen.dart';
+import 'package:chat_bot_gpt/splashScreen/splash_screen.dart';
+import 'package:chat_bot_gpt/UTIL/chat_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Chat Bot GPT",
-      home: ChatScreen(),
+      home: splash_screen(),
     );
   }
 }
