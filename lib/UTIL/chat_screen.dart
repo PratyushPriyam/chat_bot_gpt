@@ -1,10 +1,12 @@
+// ignore_for_file: non_constant_identifier_names, no_leading_underscores_for_local_identifiers, prefer_const_constructors
+
 import 'dart:async';
 
 import 'package:chat_bot_gpt/UTIL/chat_message.dart';
 import 'package:chat_bot_gpt/Three%20Dots/threeDots.dart';
 import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:quickalert/quickalert.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -26,7 +28,6 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     chatGPT = ChatGPT.instance;
   }
@@ -50,8 +51,7 @@ class _ChatScreenState extends State<ChatScreen> {
     final request = CompleteReq(
         prompt: _message.text, model: kTranslateModelV3, max_tokens: 300);
     _subscription = chatGPT!
-        .builder(API_KEY,
-            orgId: "", baseOption: HttpSetup(receiveTimeout: 6000))
+        .builder(API_KEY, orgId: "")
         .onCompleteStream(request: request)
         .listen((response) {
       chat_message botMessage =
@@ -69,7 +69,23 @@ class _ChatScreenState extends State<ChatScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Center(child: Text("Chat Bot GPT")),
+          title: Text("Chat Bot GPT"),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  QuickAlert.show(
+                      context: context,
+                      confirmBtnText: "Close",
+                      borderRadius: 30,
+                      title: "Hello 👋",
+                      animType: QuickAlertAnimType.slideInUp,
+                      text: "My name is Pratyush Priyam."
+                          " Nice meeting you ❤️."
+                          "Hope you enjoy this app. 🤖",
+                      type: QuickAlertType.info);
+                },
+                icon: Icon(Icons.info))
+          ],
           backgroundColor: Colors.orange,
         ),
         body: Column(
@@ -99,7 +115,11 @@ class _ChatScreenState extends State<ChatScreen> {
                     ),
                   ),
                   IconButton(
-                      onPressed: () => sendMessage(), icon: Icon(Icons.send))
+                      onPressed: () => sendMessage(),
+                      icon: Icon(
+                        Icons.send,
+                        color: Colors.blueGrey,
+                      ))
                 ],
               ),
             ),

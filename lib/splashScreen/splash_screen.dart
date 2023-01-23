@@ -1,8 +1,9 @@
+// ignore_for_file: camel_case_types, prefer_const_constructors
+
 import 'dart:async';
 
 import 'package:chat_bot_gpt/UTIL/chat_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class splash_screen extends StatefulWidget {
   const splash_screen({super.key});
@@ -14,7 +15,6 @@ class splash_screen extends StatefulWidget {
 class _splash_screenState extends State<splash_screen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Timer(Duration(milliseconds: 3000), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -47,6 +47,7 @@ class _splash_screenState extends State<splash_screen> {
           Text(
             "Chat Bot GPT",
             style: TextStyle(
+                fontFamily: "Righteous",
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
                 decoration: TextDecoration.none,

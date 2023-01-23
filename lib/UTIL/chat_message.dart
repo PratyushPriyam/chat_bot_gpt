@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -22,7 +24,14 @@ class chat_message extends StatelessWidget {
             .alignCenter
             .makeCentered(),
         Expanded(
-          child: text.trim().text.bodyText1(context).make().px8(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              text.trim().text.bodyText1(context).make().px8(),
+              IconButton(
+                  onPressed: () {}, icon: Icon(Icons.record_voice_over_sharp)),
+            ],
+          ),
         )
       ],
     ).py8();

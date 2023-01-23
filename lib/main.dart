@@ -1,5 +1,6 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:chat_bot_gpt/splashScreen/splash_screen.dart';
-import 'package:chat_bot_gpt/UTIL/chat_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
