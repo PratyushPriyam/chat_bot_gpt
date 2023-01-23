@@ -18,6 +18,7 @@ class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _controller = TextEditingController();
   final List<chat_message> _messages = [];
   bool _isTyping = false;
+  String API_KEY = "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";
 
   //Chat GTP initializers.
   ChatGPT? chatGPT;
@@ -49,8 +50,8 @@ class _ChatScreenState extends State<ChatScreen> {
     final request = CompleteReq(
         prompt: _message.text, model: kTranslateModelV3, max_tokens: 300);
     _subscription = chatGPT!
-        .builder("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",
-            orgId: "")
+        .builder(API_KEY,
+            orgId: "", baseOption: HttpSetup(receiveTimeout: 6000))
         .onCompleteStream(request: request)
         .listen((response) {
       chat_message botMessage =
