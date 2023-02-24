@@ -5,8 +5,12 @@ import 'dart:async';
 import 'package:chat_bot_gpt/UTIL/chat_message.dart';
 import 'package:chat_bot_gpt/Three%20Dots/threeDots.dart';
 import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
+import 'package:custom_alert_dialog_box/custom_alert_dialog_box.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quickalert/quickalert.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -20,7 +24,7 @@ class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _controller = TextEditingController();
   final List<chat_message> _messages = [];
   bool _isTyping = false;
-  String API_KEY = "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";
+  String API_KEY = "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";
 
   //Chat GTP initializers.
   ChatGPT? chatGPT;
@@ -75,7 +79,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 onPressed: () {
                   QuickAlert.show(
                       context: context,
-                      confirmBtnText: "Close",
+                      confirmBtnText: "Okay",
                       borderRadius: 30,
                       title: "Hello 👋",
                       animType: QuickAlertAnimType.slideInUp,
@@ -84,7 +88,7 @@ class _ChatScreenState extends State<ChatScreen> {
                           "Hope you enjoy this app. 🤖",
                       type: QuickAlertType.info);
                 },
-                icon: Icon(Icons.info))
+                icon: Icon(Icons.info)),
           ],
           backgroundColor: Colors.orange,
         ),

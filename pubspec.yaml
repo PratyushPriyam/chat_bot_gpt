@@ -42,6 +42,10 @@ dependencies:
   velocity_x:
   font_awesome_flutter:
   quickalert:
+  flutter_rating_bar:
+  custom_alert_dialog_box:
+  rflutter_alert:
+  lottie:
   
 
 dev_dependencies:
@@ -77,6 +81,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/chat.png
+    - assets/gifs/drum.gif
+    - assets/gifs/read.gif
+    - assets/gifs/rocket.gif
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
